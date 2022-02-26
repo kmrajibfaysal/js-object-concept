@@ -3,12 +3,12 @@ const student2 = { name: 'faysal', job: 'developer' };
 
 // using object constructor
 const person = new Object();
-console.log(person);
+// console.log(person);
 
 //
 // const human = Object.create(null);
 const human = Object.create(student2);
-console.log(human.job);
+// console.log(human.job);
 
 // from class or syntactical sugar
 class People {
@@ -19,7 +19,7 @@ class People {
 }
 
 const faysal = new People('faysal', 22);
-console.log(faysal);
+// console.log(faysal);
 
 // using function or old rule
 // class Manus {
@@ -34,7 +34,7 @@ function Manus(name, age) {
 }
 
 const man = new Manus('rajib', 12);
-console.log(man);
+// console.log(man);
 
 // different way about object method
 const student = {
@@ -49,7 +49,7 @@ const student = {
     major: 'math',
   },
   takeExam: function () {
-    console.log(`${this.name}, taking exam in ${this.major}`);
+    // console.log(`${this.name}, taking exam in ${this.major}`);
   },
   treatDey: function (expense, boksis = 50) {
     this.money = this.money - expense - boksis;
@@ -60,8 +60,8 @@ const student = {
 student.takeExam();
 const remaining1 = student.treatDey(900, 100);
 const remaining2 = student.treatDey(500, 20);
-console.log(remaining1);
-console.log(remaining2);
+// console.log(remaining1);
+// console.log(remaining2);
 
 // more objects
 const bottle = {
@@ -72,15 +72,15 @@ const bottle = {
 };
 // get all keys
 const keysBottle = Object.keys(bottle);
-console.log(keysBottle);
+// console.log(keysBottle);
 
 // get all values
 const valueBottle = Object.values(bottle);
-console.log(valueBottle);
+// console.log(valueBottle);
 
 // get both key: value in an array of array;
 const pairs = Object.entries(bottle);
-console.log(pairs);
+// console.log(pairs);
 
 // block to delete any property of objects
 Object.seal(bottle);
@@ -89,7 +89,24 @@ Object.seal(bottle);
 delete bottle.isClean;
 bottle.price = 100; // can change existing properties value
 bottle.height = 16; // but can't add or remove new key in an Object if the object is sealed
-console.log(bottle);
+// console.log(bottle);
 
 // to make object completely unchangable use this below
 Object.freeze(bottle);
+
+/* 
+    for(let i = 0; i <10; i++){};
+    for( const num of numbers){} //array
+    for(const prop in student){} //object
+*/
+
+for (const prop in bottle) {
+  console.log(`${prop}: ${bottle[prop]}`);
+}
+
+//
+const entries = Object.entries(bottle);
+console.log(entries);
+for (const [key, value] of entries) {
+  console.log(key, value);
+}
